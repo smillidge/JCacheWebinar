@@ -9,12 +9,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.StringWriter;
 import javax.inject.Inject;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 /**
  * REST Web Service
@@ -26,9 +24,6 @@ public class CustomerOrdersResource {
     
     @Inject
     PizzaStoreConnectorBean connector;
-
-    @Context
-    private UriInfo context;
 
     /**
      * Creates a new instance of CustomerOrdersResource

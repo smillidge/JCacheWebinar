@@ -8,14 +8,12 @@ package fish.payara.examples.jcache.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.StringWriter;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 /**
  * REST Web Service
@@ -28,9 +26,6 @@ public class CustomerResource {
     
     @Inject
     PizzaStoreConnectorBean connector;
-    
-    @Context
-    private UriInfo context;
 
     /**
      * Creates a new instance of CustomerResource
@@ -40,7 +35,9 @@ public class CustomerResource {
 
     /**
      * Retrieves representation of an instance of fish.payara.examples.jcache.rest.CustomerResource
+     * @param customerId
      * @return an instance of java.lang.String
+     * @throws java.io.IOException
      */
     @GET
     @Produces("application/json")
