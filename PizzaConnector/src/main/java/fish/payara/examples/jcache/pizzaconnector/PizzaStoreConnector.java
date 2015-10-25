@@ -33,11 +33,7 @@ public class PizzaStoreConnector implements PizzaStoreConnectorI {
     
     @Override
     public Customer findCustomerById(long ID) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(PizzaStoreConnector.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        sleepMs(2000);
         
         // CONSTRUCT DUMMY DATA
         
@@ -68,11 +64,7 @@ public class PizzaStoreConnector implements PizzaStoreConnectorI {
     
     @Override
     public Order getOrderById(long ID) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(PizzaStoreConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        sleepMs(2000); 
         
         // CONSTRUCT DUMMY DATA
         
@@ -106,7 +98,7 @@ public class PizzaStoreConnector implements PizzaStoreConnectorI {
         result.setOrderItems(oitemlist);
         return result;
     }
-    
+
     @Override
     public List<Long> getOrderIDsForCustomer(long custID) {
 
@@ -132,6 +124,13 @@ public class PizzaStoreConnector implements PizzaStoreConnectorI {
     public void createCustomer(long customerID, Customer customer) {
     }
     
-    
+    private void sleepMs(int sleepingTimeMs) {
+        try {
+            Thread.sleep(sleepingTimeMs);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+            Logger.getLogger(PizzaStoreConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
