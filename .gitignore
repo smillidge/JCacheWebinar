@@ -13,3 +13,6 @@ hs_err_pid*
 /PizzaConnector/target/
 /RESTInterface/target/
 /BootstrapPayaraMicro/target/
+
+#DerbyDB log file
+BootstrapPayaraMicro/derby.log
